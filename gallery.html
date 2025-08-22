@@ -158,6 +158,7 @@
             height: 250px;
             object-fit: cover;
             transition: transform 0.5s;
+            display: block;
         }
         
         .gallery-item:hover .gallery-img {
@@ -249,7 +250,7 @@
         }
         
         .testimonial-text:before {
-            content: """;
+            content: '"';
             font-size: 4rem;
             color: var(--secondary);
             position: absolute;
@@ -268,31 +269,6 @@
         .cta-section {
             padding: 100px 0;
             text-align: center;
-        }
-        
-        /* Lightbox Modal */
-        .modal-content {
-            border-radius: 10px;
-            border: none;
-        }
-        
-        .modal-header {
-            border-bottom: none;
-            background: var(--primary);
-            color: white;
-        }
-        
-        .modal-body {
-            padding: 0;
-        }
-        
-        .modal-img {
-            width: 100%;
-            border-radius: 10px 10px 0 0;
-        }
-        
-        .modal-details {
-            padding: 20px;
         }
         
         /* Footer */
@@ -493,7 +469,7 @@
 
                 <!-- Supply Projects -->
                 <div class="gallery-item" data-category="supply">
-                    <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=c crop&w=1770&q=80" class="gallery-img" alt="Supply Chain">
+                    <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80" class="gallery-img" alt="Supply Chain">
                     <div class="gallery-overlay">
                         <h3 class="gallery-title">Materials Supply</h3>
                         <p class="gallery-category">Supply</p>
