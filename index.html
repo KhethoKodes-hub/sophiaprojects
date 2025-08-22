@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sophia Projects (Pty) Ltd - Construction, Mining & Supply Services</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a5276;
+            --secondary: #e67e22;
+            --accent: #2ecc71;
+            --dark: #2c3e50;
+            --light: #ecf0f1;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            color: #333;
+            padding-top: 85px;
+            background-color: #f9f9f9;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Oswald', sans-serif;
+            font-weight: 600;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+            border-color: var(--primary);
+            padding: 12px 30px;
+            font-weight: 600;
+            border-radius: 4px;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--secondary);
+            border-color: var(--secondary);
+        }
+        
+        .btn-outline-primary {
+            color: var(--primary);
+            border-color: var(--primary);
+            padding: 12px 30px;
+            font-weight: 600;
+            border-radius: 4px;
+        }
+        
+        .btn-outline-primary:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        /* Navigation */
+        .navbar {
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 15px 0;
+            transition: all 0.3s ease;
+        }
+        
+        .navbar-brand {
+            font-family: 'Oswald', sans-serif;
+            font-weight: 700;
+            font-size: 1.8rem;
+            color: var(--primary);
+        }
+        
+        .navbar-brand span {
+            color: var(--secondary);
+        }
+        
+        .nav-link {
+            font-weight: 600;
+            color: var(--dark);
+            margin: 0 10px;
+            transition: color 0.3s;
+        }
+        
+        .nav-link:hover, .nav-link.active {
+            color: var(--primary);
+        }
+        
+        /* Page Content */
+        .page-content {
+            display: none;
+        }
+        
+        .page-content.active {
+            display: block;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1503387762353-8c6637f89308?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80');
+            background-size: cover;
+            background-position: center;
+            padding: 150px 0;
+            color: white;
+            text-align: center;
+        }
+        
+        /* Section Titles */
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title h2 {
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+        
+        .section-title h2:after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: var(--secondary);
+            margin: 15px auto;
+        }
+        
+        /* About Section */
+        .about-section {
+            padding: 100px 0;
+        }
+        
+        .about-content {
+            background-color: white;
+            border-radius: 10px;
+            padding: 50px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        /* Services Section */
+        .services-section {
+            padding: 100px 0;
+            background-color: var(--light);
+        }
+        
+        .service-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+            margin-bottom: 30px;
+            height: 100%;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .service-img {
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .service-body {
+            padding: 25px;
+        }
+        
+        .service-title {
+            color: var(--primary);
+        }
+        
+        /* Values Section */
+        .values-section {
+            padding: 100px 0;
+            background-color: white;
+        }
+        
+        .value-card {
+            text-align: center;
+            padding: 40px 30px;
+            border-radius: 10px;
+            background: var(--light);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+            height: 100%;
+            margin-bottom: 30px;
+        }
+        
+        .value-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .value-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        /* Gallery Section */
+        .gallery-section {
+            padding: 100px 0;
+            background-color: var(--light);
+        }
+        
+        .gallery-item {
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 30px;
+            position: relative;
+            cursor: pointer;
+        }
+        
+        .gallery-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+        
+        .gallery-item:hover .gallery-img {
+            transform: scale(1.1);
+        }
+        
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+        
+        .gallery-overlay i {
+            color: white;
+            font-size: 2rem;
+        }
+        
+        /* Contact Section */
+        .contact-section {
+            padding: 100px 0;
+            background-color: white;
+        }
+        
+        .contact-info {
+            margin-bottom: 30px;
+        }
+        
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            background-color: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            color: white;
+            font-size: 1.5rem;
+        }
+        
+        .contact-form {
+            padding: 40px;
+            background: var(--light);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .form-control {
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            margin-bottom: 20px;
+        }
+        
+        .form-control:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 0.2rem rgba(26, 82, 118, 0.25);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 80px 0 30px;
+        }
+        
+        .footer-logo {
+            font-family: 'Oswald', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 20px;
+        }
+        
+        .footer-logo span {
+            color: var(--secondary);
+        }
+        
+        .footer-links h5 {
+            color: white;
+            margin-bottom: 20px;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .footer-links ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links ul li a:hover {
+            color: var(--secondary);
+        }
+        
+        .cert-badge {
+            display: inline-block;
+            background: var(--secondary);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            margin-top: 30px;
+            border-top: 1px solid #444;
+        }
+        
+        /* Back to top button */
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--primary);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            opacity: 0;
+            transition: opacity 0.3s;
+            z-index: 1000;
+        }
+        
+        .back-to-top.show {
+            opacity: 1;
+        }
+        
+        /* Animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .animate-fadeIn {
+            animation: fadeIn 1s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#" onclick="showPage('home')">SOPHIA <span>PROJECTS</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#" onclick="showPage('home')">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="showPage('about')">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="showPage('services')">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="showPage('gallery')">Gallery</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="showPage('contact')">Contact</a>
+                    </li>
+                </ul>
+                <a href="#" class="btn btn-primary ms-lg-3" onclick="showPage('contact')">Get Quote</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Home Page -->
+    <div id="home" class="page-content active">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 mx-auto">
+                        <h1 class="display-3 fw-bold mb-4">BUILDING TOMORROW'S INFRASTRUCTURE TODAY</h1>
+                        <p class="lead mb-4">Sophia Projects (Pty) Ltd is a dynamic black empowered company providing exceptional construction, mining, and supply services across South Africa.</p>
+                        <a href="#" class="btn btn-primary me-2" onclick="showPage('services')">Our Services</a>
+                        <a href="#" class="btn btn-outline-light" onclick="showPage('contact')">Contact Us</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Preview Section -->
+        <section class="services-section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Our Services</h2>
+                    <p>Comprehensive solutions for construction, mining and supply</p>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4 col-md-6">
+                        <div class="service-card">
+                            <img src="https://images.unsplash.com/photo-1621891335576-3f2d51d60fb6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80" class="service-img card-img-top" alt="Construction Services">
+                            <div class="service-body">
+                                <h3 class="service-title">Construction</h3>
+                                <p>Professional building construction services including bricklaying, plastering, roofing, paving, and more.</p>
+                                <a href="#" class="btn btn-outline-primary" onclick="showPage('services')">Learn More</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="service-card">
+                            <img src="https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80" class="service-img card-img-top" alt="Mining Services">
+                            <div class="service-body">
+                                <h3 class="service-title">Mining Operations</h3>
+                                <p>Comprehensive mining services including drilling, setting explosives, stone handling, and support functions.</p>
+                                <a href="#" class="btn btn-outline-primary" onclick="showPage('services')">Learn More</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="service-card">
+                            <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80" class="service-img card-img-top" alt="Supply Services">
+                            <div class="service-body">
+                                <h3 class="service-title">Supply Services</h3>
+                                <p>Reliable supply of materials, equipment, and provisions for various industries and projects.</p>
+                                <a href="#" class="btn btn-outline-primary" onclick="showPage('services')">Learn More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center mt-5">
+                    <a href="#" class="btn btn-primary" onclick="showPage('services')">View All Services</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Preview Section -->
+        <section class="about-section">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6">
+                        <h2 class="mb-4">Why Choose Sophia Projects?</h2>
+                        <p>Sophia Projects (Pty) Ltd is a dynamic black empowered company that comprises of professionals who are adamant in securing a high level of services and quality products in a most cost effective manner.</p>
+                        <p>Since our humble inception, the company has grown from strength to strength. From the very beginning, the company has focused on its core principles of customer service, quality, value for money and innovation.</p>
+                        <a href="#" class="btn btn-primary mt-3" onclick="showPage('about')">Learn More About Us</a>
+                    </div>
+                    <div class="col-lg-6">
+                        <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80" alt="Construction Team" class="img-fluid rounded shadow">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Values Preview Section -->
+        <section class="values-section" style="background-color: var(--light);">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Our Core Values</h2>
+                    <p>The principles that guide our operations and service delivery</p>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4 col-md-6">
+                        <div class="value-card">
+                            <div class="value-icon">
+                                <i class="fas fa-handshake"></i>
+                            </div>
+                            <h3>Honesty</h3>
+                            <p>We believe honesty is always the best policy in all our business dealings and relationships.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="value-card">
+                            <div class="value-icon">
+                                <i class="fas fa-medal"></i>
+                            </div>
+                            <h3>Quality</h3>
+                            <p>Improving quality is a way of life for us and is non-negotiable in all our projects.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="value-card">
+                            <div class="value-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <h3>Service</h3>
+                            <p>We are committed to serving our customers, community, and environment with excellence.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- About Page -->
+    <div id="about" class="page-content">
+        <!-- Hero Section -->
+        <section class="hero" style="background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80');">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 mx-auto">
+                        <h1 class="display-3 fw-bold mb-4">ABOUT SOPHIA PROJECTS</h1>
+                        <p class="lead">Building excellence since our inception</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Content -->
+        <section class="about-section">
+            <div class="container">
+                <div class="about-content">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <h2 class="mb-4">Welcome to Sophia Projects</h2>
+                            <p>Sophia Projects (Pty) Ltd is a dynamic black empowered company that comprises of professionals who are adamant in securing a high level of services and quality products in a most cost effective manner.</p>
+                            <p>Since our humble inception, the company has grown from strength to strength. From the very beginning, the company has focused on its core principles of customer service, quality, value for money and innovation, and it is these that have enabled the company to gain the trust of customers.</p>
+                            <p>The company continuously introduces new and high tech designs to remain at the fore-front of the industry.</p>
+                            <div class="mt-4">
+                                <div class="d-flex mb-3">
+                                    <div class="me-4">
+                                        <i class="fas fa-certificate fa-2x" style="color: var(--primary);"></i>
+                                    </div>
+                                    <div>
+                                        <h5>Registered Company</h5>
+                                        <p>Fully registered with CIPC/DTI</p>
+                                    </div>
+                                </div>
+                                <div class="d-flex">
+                                    <div class="me-4">
+                                        <i class="fas fa-award fa-2x" style="color: var(--secondary);"></i>
+                                    </div>
+                                    <div>
+                                        <h5>B-BBEE Compliant</h5>
+                                        <p>Black empowered business</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80" alt="Construction Team" class="img-fluid rounded shadow">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Vision & Mission Section -->
+        <section class="values-section" style="background-color: var(--light);">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="value-card">
+                            <div class="value-icon">
+                                <i class="fas fa-eye"></i>
+                            </div>
+                            <h3>Our Vision</h3>
+                            <p>Sophia Projects (Pty) Ltd is an expanding, culturally diverse business, aspiring to render exceptional service to its customers and clients base, representing world class brands. Our extremely efficient, skilled and motivated personnel focuses on quality, service excellence and punctual delivery, thereby creating a profitable and sustainable structure for all stakeholders and uplifting the community we serve.</p>
+                            <ul>
+                                <li>To create employment</li>
+                                <li>To maintain competitive edge</li>
+                                <li>To offer free skills to disadvantaged youth</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="value-card">
+                            <div class="value-icon">
+                                <i class="fas fa-bullseye"></i>
+                            </div>
+                            <h3>Our Mission</h3>
+                            <p>Our mission reflects the true nature of team work and our love for modern, quality services:</p>
+                            <ul>
+                                <li>To produce better quality services</li>
+                                <li>To render quality services to all clients</li>
+                                <li>To maintain customers orientation</li>
+                                <li>To supply clients requests in time</li>
+                                <li>To promote better living for disadvantaged families</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Objectives Section -->
+        <section class="about-section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Our Objectives</h2>
+                    <p>Goals that drive our business forward</p>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="d-flex mb-4">
+                            <div class="me-4">
+                                <i class="fas fa-briefcase fa-2x" style="color: var(--primary);"></i>
+                            </div>
+                            <div>
+                                <h4>Create Employment</h4>
+                                <p>To create sustainable jobs for the unemployed people in the area</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="d-flex mb-4">
+                            <div class="me-4">
+                                <i class="fas fa-graduation-cap fa-2x" style="color: var(--primary);"></i>
+                            </div>
+                            <div>
+                                <h4>Skills Development</h4>
+                                <p>To empower women and youth with skills</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="d-flex mb-4">
+                            <div class="me-4">
+                                <i class="fas fa-chart-line fa-2x" style="color: var(--primary);"></i>
+                            </div>
+                            <div>
+                                <h4>Promote Growth</h4>
+                                <p>To promote growth in the area</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="d-flex mb-4">
+                            <div class="me-4">
+                                <i class="fas fa-hands-helping fa-2x" style="color: var(--primary);"></i>
+                            </div>
+                            <div>
+                                <h4>Black Empowerment</h4>
+                                <p>To promote black empowerment economic</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 offset-md-3">
+                        <div class="d-flex mb-4">
+                            <div class="me-4">
+                                <i class="fas fa-wheelchair fa-2x" style="color: var(--primary);"></i>
+                            </div>
+                            <div>
+                                <h4>Empower Disabled</h4>
+                                <p>To empower disabled with skills</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Services Page -->
+    <div id="services" class="page-content">
+        <!-- Hero Section -->
+        <section class="hero" style="background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80');">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 mx-auto">
+                        <h1 class="display-3 fw-bold mb-4">OUR SERVICES</h1>
+                        <p class="lead">Comprehensive solutions for construction, mining and supply</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section class="services-section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Our Service Offerings</h2>
+                    <p>We excel in a wide range of construction, mining and supply services</p>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4 col-md-6">
+                        <div class="service-card">
+                            <img src="https://images.unsplash.com/photo-1621891335576-3f2d51d60fb6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80" class="service-img card-img-top" alt="Construction Services">
+                            <div class="service-body">
+                                <h3 class="service-title">Construction</h3>
+                                <p>Professional building construction services including bricklaying, plastering, roofing, paving, and more.</p>
+                                <ul class="list-unstyled">
+                                    <li><i class="fas fa-check" style="color: var(--primary);"></i> Building Construction</li>
+                                    <li><i class="fas fa-check" style="color: var(--primary);"></i> Renovation</li>
+                                    <li><i class="fas fa-check" style="color: var(--primary);"></i> Brick Laying</li>
+                                    <li><i class="fas fa-check" style="color: var(--primary);"></i> Painting</li>
+                                    <li><i class="fas fa-check" style="color: var(--primary);"></i> Plastering</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="service-card">
+                            <img src="https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80" class="service-img card-img-top" alt="Mining Services">
+                            <div class="service-body">
+                                <h3 class="service-title">Mining Operations</h3>
+                                <p>Comprehensive mining services including drilling, setting explosives, stone handling, and support functions.</p>
+                                <ul class="list-unstyled">
+                                    <li><i class="fas fa-check" style="color: var(--primary);"></i> Drilling</li>
+                                    <li><i class="fas fa-check" style="color: var(--primary);"></i> Setting Explosives</li>
+                                    <li><i class="fas fa-check" style="color: var(--primary);"></i> Stone Handling</li>
+                                    <li><i class="fas fa-check" style="color: var(--primary);"></i> Support Functions</li>
+                                    <li><i class="fas fa-check" style="color: var(--primary);"></i> LVD and Truck Services</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="service-card">
+                            <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80" class="service-img card-img-top" alt="Supply Services">
+                            <div class="service-body">
+                                <h3 class="service-title">Supply Services</h3>
+                                <p>Reliable supply of materials, equipment, and provisions for various industries and projects.</p>
+                                <ul class="list-unstyled">
+                                    <li><i class="fas fa-check" style="color: var(--primary);"></i> Stationery Supply</li>
+                                    <li><i class="fas fa-check" style="color: var(--primary);"></i> Food Supply</li>
+                                    <li><i class="fas fa-check" style="color: var(--primary);"></i> Furniture Supply</li>
+                                    <li><i class="fas fa-check" style="color: var(--primary);"></i> Materials Supply</li>
+                                    <li><i class="fas fa-check" style="color: var(--primary);"></i> Uniform Supply</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="service-card">
+                            <img src="https://images.unsplash.com/photo-1621114957136-10e3710ce0e6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80" class="service-img card-img-top" alt="Specialized Services">
+                            <div class="service-body">
+                                <h3 class="service-title">Specialized Services</h3>
+                                <p>Expert services for specialized construction and maintenance needs.</p>
+                                <ul class="list-unstyled">
+                                    <li><i class="fas fa-check" style="color: var(--primary);"></i> Pool Design & Construction</li>
+                                    <li><i class="fas fa-check" style="color: var(--primary);"></i> Carpentry</li>
+                                    <li><i class="fas fa-check" style="color: var(--primary);"></i> Steel Fixing</li>
+                                    <li><i class="fas fa-check" style="color: var(--primary);"></i> Form Work</li>
+                                    <li><i class="fas fa-check" style="color: var(--primary);"></i> Plumbing & Electrical</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="service-card">
+                            <img src="https://images.unsplash.com/photo-1591637333184-19aa84b3e01f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" class="service-img card-img-top" alt="Maintenance Services">
+                            <div class="service-body">
+                                <h3 class="service-title">Maintenance Services</h3>
+                                <p>Comprehensive maintenance and landscaping services for commercial and residential properties.</p>
+                                <ul class="list-unstyled">
+                                    <li><i class="fas fa-check" style="color: var(--primary);"></i> Grass Cutting</li>
+                                    <li><i class="fas fa-check" style="color: var(--primary);"></i> Gardening</li>
+                                    <li><i class="fas fa-check" style="color: var(--primary);"></i> Fumigating</li>
+                                    <li><i class="fas fa-check" style="color: var(--primary);"></i> Cleaning</li>
+                                    <li><i class="fas fa-check" style="color: var(--primary);"></i> Tiling</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="service-card">
+                            <img src="https://images.unsplash.com/photo-1591955506264-3f5a6834570a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80" class="service-img card-img-top" alt="Generator Hire">
+                            <div class="service-body">
+                                <h3 class="service-title">Generator Hire</h3>
+                                <p>Reliable generator hire services for events, functions, and business continuity.</p>
+                                <ul class="list-unstyled">
+                                    <li><i class="fas fa-check" style="color: var(--primary);"></i> Funerals</li>
+                                    <li><i class="fas fa-check" style="color: var(--primary);"></i> Weddings</li>
+                                    <li><i class="fas fa-check" style="color: var(--primary);"></i> Corporate Functions</li>
+                                    <li><i class="fas fa-check" style="color: var(--primary);"></i> Church Events</li>
+                                    <li><i class="fas fa-check" style="color: var(--primary);"></i> Personal & Business Use</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action Section -->
+        <section class="contact-section" style="background-color: var(--primary); color: white;">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-8">
+                        <h2 class="mb-3">Need Our Services?</h2>
+                        <p class="lead">Contact us today for a free consultation and quote on any of our services.</p>
+                    </div>
+                    <div class="col-lg-4 text-lg-end">
+                        <a href="#" class="btn btn-light btn-lg" onclick="showPage('contact')">Get In Touch</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Gallery Page -->
+    <div id="gallery" class="page-content">
+        <!-- Hero Section -->
+        <section class="hero" style="background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80');">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 mx-auto">
+                        <h1 class="display-3 fw-bold mb-4">OUR PROJECTS</h1>
+                        <p class="lead">Showcasing our diverse range of completed projects</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section class="gallery-section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Project Gallery</h2>
+                    <p>Explore our completed projects across various sectors</p>
+                </div>
+                <div class="row">
+                    <div class="col-lg-3 col-md-6">
+                        <div class="gallery-item">
+                            <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80" class="gallery-img" alt="Construction Project">
+                            <div class="gallery-overlay">
+                                <i class="fas fa-search-plus"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="gallery-item">
+                            <img src="https://images.unsplash.com/photo-1581092581325-2b32816f63d5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" class="gallery-img" alt="Technical Work">
+                            <div class="gallery-overlay">
+                                <i class="fas fa-search-plus"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="gallery-item">
+                            <img src="https://images.unsplash.com/photo-1584132915803-fd1f5fbc078f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80" class="gallery-img" alt="Building Project">
+                            <div class="gallery-overlay">
+                                <i class="fas fa-search-plus"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="gallery-item">
+                            <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80" class="gallery-img" alt="Industrial Project">
+                            <div class="gallery-overlay">
+                                <i class="fas fa-search-plus"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="gallery-item">
+                            <img src="https://images.unsplash.com/photo-1584134965804-8bdca0be8093?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" class="gallery-img" alt="Pool Design">
+                            <div class="gallery-overlay">
+                                <i class="fas fa-search-plus"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="gallery-item">
+                            <img src="https://images.unsplash.com/photo-1581092446325-71a08adc9d5c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" class="gallery-img" alt="Equipment">
+                            <div class="gallery-overlay">
+                                <i class="fas fa-search-plus"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="gallery-item">
+                            <img src="https://images.unsplash.com/photo-1616587226157-48e49175ee20?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80" class="gallery-img" alt="Construction Site">
+                            <div class="gallery-overlay">
+                                <i class="fas fa-search-plus"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="gallery-item">
+                            <img src="https://images.unsplash.com/photo-1583636914853-455b7caad8d9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" class="gallery-img" alt="Construction Work">
+                            <div class="gallery-overlay">
+                                <i class="fas fa-search-plus"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="values-section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Client Testimonials</h2>
+                    <p>What our clients say about our work</p>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="value-card">
+                            <div class="value-icon">
+                                <i class="fas fa-quote-left"></i>
+                            </div>
+                            <p>"Sophia Projects delivered exceptional quality on our office
